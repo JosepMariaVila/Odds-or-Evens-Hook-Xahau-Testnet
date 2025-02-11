@@ -32,7 +32,7 @@ Once the hook is installed, the following triggers are expected for the hook.
 
 ## How to install the Highest Number Hook on Testnet?
 
-HookHash: E31E3F125C377E89ACC76610DD017FBEE434FB5BDAE86DEF3C345B994916C64F
+HookHash: E0C65E4A905F6A0835C3753467176F2BE031C239A7E0F82B44A99C8A4F119028
 
 1. You can do it by (XRPLWin Hook Install Tool)[https://xahau-testnet.xrplwin.com/tools/hook/from-hash]
 
@@ -47,7 +47,7 @@ HookOn is activated to trigger for Invoke and Payment transactions. You can veri
       "Hooks": [
         {
           "Hook": {
-            "HookHash": "1A9D1EEA98A9BE3C45A35872E51E36B6E73CBB7033A96CE0D98DB484215E0494",
+            "HookHash": "E0C65E4A905F6A0835C3753467176F2BE031C239A7E0F82B44A99C8A4F119028",
             "HookNamespace": "0000000000000000000000000000000000000000000000000000000000000000",
             "HookOn": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFFFFFFFFFFFFFBFFFFE",
           }
@@ -105,7 +105,7 @@ In this example we are using 1E2D42546C8A5270D4E182FAE3D12186F2A32A7E that is th
 
 ## How to install the Highest Number Hook on Mainnet?
 
-Same as Testnet but changing the hookhash. The Hookhash is B5822426DFE897EF446BBCDEC3F83D803EC80188390DDA74112F6AAFE202A9E8.
+Same as Testnet but changing the hookhash. The Hookhash is 0FFB97070F3B6D4DFC5C088935A64DCEA4C20EC1EB40BABB26A5716A2A420350.
 
 1. You can do it by [XRPLWin Hook Install Tool](https://xahau.xrplwin.com/tools/hook/from-hash)
 
@@ -119,7 +119,7 @@ Same as Testnet but changing the hookhash. The Hookhash is B5822426DFE897EF446BB
       "Hooks": [
         {
           "Hook": {
-            "HookHash": "B5822426DFE897EF446BBCDEC3F83D803EC80188390DDA74112F6AAFE202A9E8",
+            "HookHash": "0FFB97070F3B6D4DFC5C088935A64DCEA4C20EC1EB40BABB26A5716A2A420350",
             "HookNamespace": "0000000000000000000000000000000000000000000000000000000000000000",
             "HookOn": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFFFFFFFFFFFFFBFFFFE",
           }
