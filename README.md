@@ -1,4 +1,6 @@
-![highestnumber](https://github.com/user-attachments/assets/6128313d-cced-4431-a290-b18ee25eb920)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/6128313d-cced-4431-a290-b18ee25eb920">
+</p>
 
 # Highest Number A Minigame Hook 
 
