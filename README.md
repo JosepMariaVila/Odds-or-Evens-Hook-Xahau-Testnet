@@ -129,6 +129,14 @@ Same as Testnet but changing the hookhash. The Hookhash is 0FFB97070F3B6D4DFC5C0
     };
 ```
 
+## I want to try them without installing anything
+
+You can try this hook just sending 1 XAH to one of the next networks (I am not responsible for loss of funds if the hook has stopped working.):
+
+- Testnet: rK9rfPgLXExBY24X6aAfKNePMyqzhTDtCe
+- Mainnet: rBne1jL7bPPkZpf1iESrgPS48cPt86K9RH
+
+
 ## Ideas for your hooks
 
 This is just a small example so that others can build similar ideas or extend the current hook. Some ideas I propose:
