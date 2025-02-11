@@ -34,7 +34,7 @@ Once the hook is installed, the following triggers are expected for the hook.
 
 HookHash: E0C65E4A905F6A0835C3753467176F2BE031C239A7E0F82B44A99C8A4F119028
 
-1. You can do it by (XRPLWin Hook Install Tool)[https://xahau-testnet.xrplwin.com/tools/hook/from-hash]
+1. You can do it by [XRPLWin Hook Install Tool](https://xahau-testnet.xrplwin.com/tools/hook/from-hash)
 
 2. Or you can do it sending the transaction below:
 
