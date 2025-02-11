@@ -19,19 +19,13 @@ The hook blocks any payment other than 1 XAH. So a fourth case could occur, that
 
 ## Installation & Usage
 
-The hook is installed in the account that we will call Hook Account. Hook Account will be the one affected by the Stop Me Hook logic. To make it work we first need to decide the address (From now, Backup Account) that will be from now on responsible for the Hook Account to be able to send payments or not.
+Once the hook is installed, the following triggers are expected for the hook.
 
-In order to assign an Backup Account we will use an Invoke transaction from the hook account. We will add the BACK parameter with the address of the backup account. We must translate it to HEX, for this we go to https://transia-rnd.github.io/xrpl-hex-visualizer/ , add the account and click “From Hex” and copy the value xrpAddress in our transaction.
+- An account will send a payment of 1 XAH to the hook account. The payment account will be known as Player 1. The hook will register in the namespace the address of Player one with the key P1AD and store the rightmost number of the ledger sequence in the namespace under the key P1LG.
 
-If everything went well from now on, the new transactions we will create to manage the hook, will be sent from the Backup Account. If we give it orders from the Hook Account, it would not make sense to install a secuirity hook if we are going to be able to activate and deactivate it at will.
+- A second account (different from the first one) will send a payment of 1 XAH to the hook account. The payment account will be known as Player 2. The hook will compare the rightmost number of the ledger sequence of the ledger sequence with that of Player 1 and decide the final result of the game.
 
-To activate the hook account payment sending block we must activate the ACTI flag. To do this we will create an Invoke transaction with origin the backup account and destination the hook account. We will add the parameter ACTI and the value 01. If everything went well, from now on if we try to make payments from our payment account it will not be possible until we deactivate the ACTI flag.
-
-To deactivate the ACTI flag and allow outgoing payments again, we create an Invoke transaction with source the Backup Account and destination the hook Account. As hook parameter we will add ACTI and the value 00. If everything went well, from now on, the account will be able to operate normally again.
-
-If we want to change the Backup Account for another account, we create an Invoke transaction with source the Backup Account and destination the Hook Account. We will use the Hook BACK parameter and the address of the new backup address in the same way we defined it last time.
-
-If we want to completely eliminate the administration of the Backup Account and that the hook account no longer has a manager, we create an Invoke operation with origin the backup account and destination the hook account. As Hook parameter we will add DELE and as value the account translated to HEX where the hook is installed.
+- An Invoke transaction from the hook account with the hook parameter “FUND” and the desired address as value in HEX format. This will store in the namespace the information with the key “FUND” and with value the address in HEX.
 
 
 ## How to install the Stop Me Hook on Testnet?
