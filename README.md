@@ -40,7 +40,7 @@ Once the hook is installed, the following triggers are expected for the hook.
 
 - An account will send a payment of 1 XAH to the hook account. The payment account will be known as Player 1. The hook will register in the namespace the address of Player one with the key P1AD and store the odd or even number of the ledger sequence in the namespace under the key P1LG.
 
-- A second account (different from the first one) will send a payment of 1 XAH to the hook account. The payment account will be known as Player 2. The hook will compare the oddeness or evenss of the ledger sequence number with that of Player 1 and decide the final result of the game.
+- A second account (different from the first one) will send a payment of 1 XAH to the hook account. The payment account will be known as Player 2. The hook will compare the oddeness or eveness of the ledger index sequence number with that of Player 1 and decide the final result of the game.
 
 - An Invoke transaction from the hook account with the hook parameter “FUND” and the desired address as value in HEX format. This will store in the namespace the information with the key “FUND” and with value the address in HEX.
 
@@ -54,7 +54,7 @@ HookHash: 89E9C5B8F04BD9C23AA0299573B0EBC43091AEBB5AFC90D4A353020A00CEFDE7
 
 ## I want to try them without installing anything
 
-You can try this hook just sending 1 XAH to one of the next networks (I am not responsible for loss of funds if the hook has stopped working.):
+You can try this hook just sending 1 XAH to this account on TESTNET:
 
 - Testnet: r9uM7PHEYvMqBQsuFzAany9xucXfrQsLDr
 
