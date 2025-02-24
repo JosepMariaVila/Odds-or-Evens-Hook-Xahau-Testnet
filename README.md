@@ -45,47 +45,11 @@ Once the hook is installed, the following triggers are expected for the hook.
 
 ## How to install the Highest Number Hook on Testnet?
 
-HookHash: E0C65E4A905F6A0835C3753467176F2BE031C239A7E0F82B44A99C8A4F119028
+HookHash: 89E9C5B8F04BD9C23AA0299573B0EBC43091AEBB5AFC90D4A353020A00CEFDE7
 
 1. You can do it by [XRPLWin Hook Install Tool](https://xahau-testnet.xrplwin.com/tools/hook/from-hash)
+   
 
-2. Or you can do it sending the transaction below:
-
-HookOn is activated to trigger for Invoke and Payment transactions. You can verify it copying the HookOn value (FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFFFFFFFFFFFFFBFFFFE) in this website: https://richardah.github.io/xrpl-hookon-calculator/
-
-    const prepared = {
-      "TransactionType": "SetHook",
-      "Account": your_account_address,
-      "Flags": 0,
-      "Hooks": [
-        {
-          "Hook": {
-            "HookHash": "E0C65E4A905F6A0835C3753467176F2BE031C239A7E0F82B44A99C8A4F119028",
-            "HookNamespace": "0000000000000000000000000000000000000000000000000000000000000000",
-            "HookOn": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFFFFFFFFFFFFFBFFFFE",
-          }
-        }
-      ],
-      ...networkInfo.txValues,
-    };
-
-## How to uninstall the Highest Number Hook on Mainnet/Testnet?
-
-    const prepared = {
-      "TransactionType": "SetHook",
-      "Account": your_account_address,
-      "Flags": 0,
-      Hooks:
-    [        
-        {                        
-            Hook: {
-                CreateCode: "",
-                Flags: 1,
-            }
-        }
-    ],
-      ...networkInfo.txValues,
-    };
 
 ## Transaction Examples for Hook Parameters
 
@@ -115,39 +79,11 @@ In this example we are using 1E2D42546C8A5270D4E182FAE3D12186F2A32A7E that is th
     };
 
 
-
-## How to install the Highest Number Hook on Mainnet?
-
-Same as Testnet but changing the hookhash. The Hookhash is 0FFB97070F3B6D4DFC5C088935A64DCEA4C20EC1EB40BABB26A5716A2A420350.
-
-1. You can do it by [XRPLWin Hook Install Tool](https://xahau.xrplwin.com/tools/hook/from-hash)
-
-2. Or you can do it sending the transaction below:
-
-```
-    const prepared = {
-      "TransactionType": "SetHook",
-      "Account": your_account_address,
-      "Flags": 0,
-      "Hooks": [
-        {
-          "Hook": {
-            "HookHash": "0FFB97070F3B6D4DFC5C088935A64DCEA4C20EC1EB40BABB26A5716A2A420350",
-            "HookNamespace": "0000000000000000000000000000000000000000000000000000000000000000",
-            "HookOn": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7FFFFFFFFFFFFFFFFFFBFFFFE",
-          }
-        }
-      ],
-      ...networkInfo.txValues,
-    };
-```
-
 ## I want to try them without installing anything
 
 You can try this hook just sending 1 XAH to one of the next networks (I am not responsible for loss of funds if the hook has stopped working.):
 
-- Testnet: rK9rfPgLXExBY24X6aAfKNePMyqzhTDtCe
-- Mainnet: rBne1jL7bPPkZpf1iESrgPS48cPt86K9RH
+- Testnet: r9uM7PHEYvMqBQsuFzAany9xucXfrQsLDr
 
 
 ## Credits
