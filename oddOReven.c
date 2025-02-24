@@ -69,9 +69,9 @@ int64_t hook(uint32_t reserved ) {
     //Get ledger sequence
     int64_t seq = ledger_seq();
     //uint8_t last_digit = seq % 10;
-    //uint8_t oddoreven = seq % 2;
+    uint8_t remainder = seq % 2;
 
-     if (seq % 2 == 0) {
+     if (remainder == 0) {
         uint8_t oddoreven = 0;
         TRACEVAR(oddoreven);
     } else {
@@ -89,7 +89,7 @@ int64_t hook(uint32_t reserved ) {
         accept(SBUF("Odd or Even: Adding fund account."), 1);
     }
     //I want to allow the fund account send payments and receiving from hook account
-    if (tt==00 && ( sender_equal || destination_equal)) {
+    if (tt==00 && (sender_equal || destination_equal)) {
         accept(SBUF("Odd or Even: Funding account payment."), 2);
     }
     // If It's not XAH (other tokens). or a transaction without amount
@@ -113,13 +113,13 @@ int64_t hook(uint32_t reserved ) {
         unsigned char tx01[PREPARE_PAYMENT_SIMPLE_SIZE];
 
         //If P2 Wins, we send 2 XAH to P2
-        if(oddoreven != p1_digit){
+        if(oddoreven!=p1_digit){
             PREPARE_PAYMENT_SIMPLE(tx01, drops_sent*2, acc_id, 0, 0);
             uint8_t emithash01[32];
             int64_t emit_result01 = emit(SBUF(emithash01), SBUF(tx01));
         }
         //If P1 Wins we send 2 XAH to P1
-        if(oddoreven == p1_digit){
+        if(oddoreven==p1_digit){
             PREPARE_PAYMENT_SIMPLE(tx01, drops_sent*2, p1address_ns, 0, 0);
             uint8_t emithash01[32];
             int64_t emit_result01 = emit(SBUF(emithash01), SBUF(tx01));
