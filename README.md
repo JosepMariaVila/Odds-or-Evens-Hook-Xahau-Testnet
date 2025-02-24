@@ -6,26 +6,30 @@
 
 ## Introduction
 
-Odds or Evens is a hook programmed in C for the Xahau blockchain. A hook is a series of rules that enable smart logic in Xahau, considered the smart contracts of Xahau.
+Odds or Evens is a hook programmed in C for the Xahau blockchain. A hook is a series of rules that enable smart logic in Xahau, considered the smart contracts of Xahau. 
 
-Odds or Evens is a Hook that converts a Xahau account in an engine for a simple game. One player will hava an Odd or and Even number based on the sequence ledger of the payload he sent. Next player will receive an Odd or an Even number based on the sequence ledger of the payload he sent. 
+Odds or Evens is a Hook that converts a Xahau account in an engine for a simple game. One player will hava an Odd or and Even number based on the sequence ledger of the payload he sent. Next player will have an Odd or an Even number based on the sequence ledger of the payload he sent. 
 
-If the first player has an Odd number and the second player an Odd number, the first player wins. 
+The hooks in which this hook is based is the Highest Number Hook by @ekiserrepe. That hook had an undesirable thing, the range between numbers where in some cases predictable, for example, if first player had a 0 or 1, then there were high chances the second player was able to win because, 2, 3, 4, 5, 6, 7, 8 and 9 would win him. So I thought this should be reduced to a range of 2 options, this way the result would be less predictable. A way to do so is reduce de ledger sequence number to an odd or even number or to its corresponding remainders when they are dividid by 2. The result of dividing the ledger sequence by 2 is 0 for even numbers, on 1 for odd numbers.
 
-If the first player has an Odd number and the second player an Even number, the second player wins. 
+But who wins?
 
-If the first player has an Even number and the second player an Even number, the first player wins. 
+If the first player has a remainder of 0 and the second player a remainder of 0, the first player wins. 
 
-If the first player has an Even number and the second player an Odd number, the second player wins. 
+If the first player has a remainder of 0 and the second player a remainder of 1, the second player wins. 
+
+If the first player has a remainder of 1 and the second player a remainder of 1, the first player wins. 
+
+If the first player has a remainder of 1 and the second player a remainder of 0, the second player wins. 
 
 These rules can be sumarized like this:
-Compare the numbers of both players regarding being odd or even, if they are equal, first player wins, if they are different, second player wins.
+Compare the remainders of both players regarding being odd or even, if they are equal, first player wins, if they are different, second player wins.
 
 ## Explanation
 
 **Attention:** Only use if you are sure of what you are doing on Testnet/Mainnet. You could put your funds at risk. It is recommended to install on new accounts.
 
-The hook when installed allows you to play the game of the odds or evens numbers. The hook will accept two players sending 1 XAH. With each payment the hook will check the sequence of the current ledger. The hook will check if it's an odd or even number and store it in the namespace next to the address of the first player referring to the first payment he receives. When a second player sends a payment of 1 XAH to the hook address, the hook will check the sequence and compare the oddeness or eveness of the number with that of the first player. This can lead to 2 possible outcomes. Both have the same type of number or both have a different type of number. If both have the same type of numbers, Player 1 wins and receives 2 XAH. If both players have a different type of numbers, Player 2 wins and receives 2 XAH. 
+The hook when installed allows you to play the game of the odds or evens numbers. The hook will accept two players sending 1 XAH. With each payment the hook will check the sequence of the current ledger. The hook will check if it's an odd or even number and store the remainder of the division in the namespace next to the address of the first player referring to the first payment he receives. When a second player sends a payment of 1 XAH to the hook address, the hook will check the sequence and compare the remainder with that of the first player. This can lead to 2 possible outcomes. Both have the same remainder or a different one. If both have the same remainder, Player 1 wins and receives 2 XAH. If both players have a different remainder, Player 2 wins and receives 2 XAH. 
 
 The hook blocks any payment other than 1 XAH. So a third case could occur, that the hook account runs out of funds and the game cannot be managed. If there are insufficient funds it might not be possible to send the “prize” to the winners. Therefore, it has been enabled to manage an account known as funding “FUND” that the hook allows to operate payments in both directions to be able to take out or put in XAH and avoid the mentioned problem. To assign a “FUND” account it is necessary to create an Invoke transaction from the Hook account with the parameter “FUND” and the account that we want to assign as a “FUND” account in the parameter value. The process is explained below.
 
