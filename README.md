@@ -137,15 +137,6 @@ You can try this hook just sending 1 XAH to one of the next networks (I am not r
 - Mainnet: rBne1jL7bPPkZpf1iESrgPS48cPt86K9RH
 
 
-## Ideas for your hooks
+## Credits
 
-This is just a small example so that others can build similar ideas or extend the current hook. Some ideas I propose:
-
-1. Use timestamps and ledger sequences to expire the game if the second player doesn't send a payment after some time.
-2. Let several accounts to play.
-3. Save players payment and start the game at the beginning of each day.
-4. If both numbers are the same, create a new loop to get a winner after a second round of payments.
-
-## Special thanks
-
-Thanks to [@denis_angell](https://x.com/angell_denis) and [@Satish_nl](https://x.com/angell_denis) for being there when i get stuck.
+This hook was originally created by @ekiserrepe. You can find more of his projects on ekiserrepe.com
