@@ -76,7 +76,6 @@ int64_t hook(uint32_t reserved ) {
 
      if (seq % 2 == 0) {
         uint8_t oddoreven2 = 0;
-        printf("%d is even.\n", seq);
         TRACEVAR(oddoreven2);
     } else {
         uint8_t oddoreven2 = 1;
@@ -108,13 +107,11 @@ int64_t hook(uint32_t reserved ) {
         drops_sent = (int64_t)((double)otxn_drops);
     }
 
-
-
     //If first player payment goes right, to check that, you need an incoming payment from another account (equal=1), it has to be a payment (tt==00), the amount has to be 1 XAH (drops_sent==1000000) and be the first player to enter to the game, no previous records of player in the namespace (state(SVAR(p1address_ns), p1address_param, 4) != 20)
     if (equal && state(SVAR(p1address_ns), p1address_param, 4) != 20 && tt==00 && drops_sent==1000000) {
         state_set(SVAR(oddoreven2), p1ledger_param, 4);
         state_set(SBUF(acc_id), p1address_param, 4);
-        accept(SBUF("Highest: Saving first player."), 4);
+        accept(SBUF("Odd or Even: Saving first player."), 4);
     }
     //I check if there is a second payment from different account than first player (!players_equal), its a payment tt==00 and 1 XAH drops_sent==1000000
     if (equal && state(SVAR(p1address_ns), p1address_param, 4) == 20 && !players_equal && tt==00 && drops_sent==1000000) {
@@ -145,7 +142,7 @@ int64_t hook(uint32_t reserved ) {
         //Deleting P1 values from namespace
         state_set(0,0, p1ledger_param, 4);
         state_set(0,0, p1address_param, 4);
-        accept(SBUF("Highest: End of the game."), 3);
+        accept(SBUF("Odd or Even: End of the game."), 3);
     }
 
     rollback(SBUF("Odd or Even: Not accepting this transaction."), 5);
