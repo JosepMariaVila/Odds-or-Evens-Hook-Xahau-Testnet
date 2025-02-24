@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://www.canva.com/design/DAGgCzl4N3g/GCbJxpuFyjwe62q3Cu2eZA/edit?utm_content=DAGgCzl4N3g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">
-</p>
+https://www.canva.com/design/DAGgCzl4N3g/GCbJxpuFyjwe62q3Cu2eZA/edit?utm_content=DAGgCzl4N3g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 # Odds or Evens, a game Hook 
 
