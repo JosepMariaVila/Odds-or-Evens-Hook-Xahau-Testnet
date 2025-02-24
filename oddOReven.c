@@ -1,5 +1,5 @@
 /**
- * Highest Number Game - Readme available: https://github.com/Ekiserrepe/highestnumber-hook
+ * Odds or Evens Game - Readme available: https://github.com/Ekiserrepe/highestnumber-hook
  */
 #include "hookapi.h"
 
