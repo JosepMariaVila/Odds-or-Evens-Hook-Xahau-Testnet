@@ -12,7 +12,6 @@ int64_t hook(uint32_t reserved ) {
     unsigned char hook_accid[20];
     hook_account((uint32_t)hook_accid, 20);
 
-
     // Check the sender of the initial txn
     uint8_t acc_id[20];
     otxn_field(SBUF(acc_id), sfAccount);
@@ -20,7 +19,6 @@ int64_t hook(uint32_t reserved ) {
     // Check destination of the initial txn
     uint8_t account_field[20];
     int32_t account_field_len = otxn_field(SBUF(account_field), sfDestination);
-
 
     // Checking if hook_accid and account_field are the same
     int equal = 0;
@@ -41,7 +39,6 @@ int64_t hook(uint32_t reserved ) {
     uint8_t p1address_param[4] = {'P', '1', 'A', 'D'};
     uint8_t p2ledger_param[4] = {'P', '2', 'L', 'G'};
     uint8_t p2address_param[4] = {'P', '2', 'A', 'D'};
-
 
     uint8_t p1address_ns[20] = {0x00U};
     uint8_t p2address_ns[20] = {0x00U};
@@ -71,18 +68,10 @@ int64_t hook(uint32_t reserved ) {
     //uint8_t last_digit = seq % 10;
     uint8_t remainder = seq % 2;
 
-    /*
-     if (remainder == 0) {
-        uint8_t even = 0;
-        TRACEVAR(even);
-    } else {
-        uint8_t odd = 1;
-        TRACEVAR(odd);
-    }
-    */
     // Get first player last digit if exists
     uint64_t p1_digit;
     state(SVAR(p1_digit), p1ledger_param, 4);
+    TRACEVAR(p1_digit);
 
     //If i want to add the funding account
     if (!equal && otxn_param(fundaddress_hp, 20, SBUF(fund_param))==20 && tt==99) {
@@ -135,20 +124,11 @@ int64_t hook(uint32_t reserved ) {
             uint8_t emithash01[32];
             int64_t emit_result01 = emit(SBUF(emithash01), SBUF(tx01));
         }
-        //If there is a draw, we send 1 XAH to each player
-       /* if(last_digit==p1_digit){
-            unsigned char tx02[PREPARE_PAYMENT_SIMPLE_SIZE];
-            PREPARE_PAYMENT_SIMPLE(tx01, drops_sent, p1address_ns, 0, 0);
-            uint8_t emithash01[32];
-            int64_t emit_result01 = emit(SBUF(emithash01), SBUF(tx01));
-            PREPARE_PAYMENT_SIMPLE(tx02, drops_sent, acc_id, 0, 0);
-            uint8_t emithash02[32];
-            int64_t emit_result02 = emit(SBUF(emithash02), SBUF(tx02));
-        }*/
+        
         //Deleting P1 values from namespace
         state_set(0,0, p1ledger_param, 4);
         state_set(0,0, p1address_param, 4);
-        accept(SBUF("Odd or Even: End of the game."), 3);
+        accept(SBUF("Odd or Even: We have a winner, end of the game!"), 3);
     }
 
     rollback(SBUF("Odd or Even: Not accepting this transaction."), 5);
