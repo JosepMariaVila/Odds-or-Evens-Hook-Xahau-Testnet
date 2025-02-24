@@ -54,7 +54,7 @@ HookHash: 89E9C5B8F04BD9C23AA0299573B0EBC43091AEBB5AFC90D4A353020A00CEFDE7
 
 ## I want to try them without installing anything
 
-You can try this hook just sending 1 XAH to this account on TESTNET:
+You can try this hook just sending 1 XAH to this account on TESTNET and wait until somebody else sends 1 XAH to it and see who wins (or you can just create a second account on testnet and send yourself 1 XAH from this different account and see who wins):
 
 - Testnet: r9uM7PHEYvMqBQsuFzAany9xucXfrQsLDr
 
