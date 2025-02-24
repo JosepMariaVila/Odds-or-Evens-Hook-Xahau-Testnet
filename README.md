@@ -6,12 +6,22 @@
 
 ## Introduction
 
-Highest Number is a hook programmed in C for the Xahau blockchain. A hook is a series of rules that enable smart logic in Xahau, considered the smart contracts of Xahau.
+Odds or Evens is a hook programmed in C for the Xahau blockchain. A hook is a series of rules that enable smart logic in Xahau, considered the smart contracts of Xahau.
 
-Highest Number is a Hook that converts a Xahau account in an engine for a simple game. This a simple idea for others to use to create more sophisticated and customizable hooks.
+Odds or Evens is a Hook that converts a Xahau account in an engine for a simple game. One player will hava an Odd or and Even number based on the sequence ledger of the payload he sent. Next player will receive an Odd or an Even number based on the sequence ledger of the payload he sent. 
+
+If the first player has an Odd number and the second player an Odd number, the first player wins. 
+
+If the first player has an Odd number and the second player an Even number, the second player wins. 
+
+If the first player has an Even number and the second player an Even number, the first player wins. 
+
+If the first player has an Even number and the second player an Odd number, the second player wins. 
+
+These rules can be sumarized like this:
+Compare the numbers of both players regarding being odd or even, if they are equal, first player wins, if they are different, second player wins.
 
 ## Explanation
-
 
 **Attention:** Only use if you are sure of what you are doing on Testnet/Mainnet. You could put your funds at risk. It is recommended to install on new accounts.
 
