@@ -68,7 +68,7 @@ int64_t hook(uint32_t reserved ) {
     //uint8_t last_digit = seq % 10;
     uint8_t remainder = seq % 2;
 
-    // Get first player last digit if exists
+    // Get first player number if exists
     uint64_t p1_digit;
     state(SVAR(p1_digit), p1ledger_param, 4);
     TRACEVAR(p1_digit);
