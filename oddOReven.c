@@ -75,8 +75,10 @@ int64_t hook(uint32_t reserved ) {
 
      if (seq % 2 == 0) {
         printf("%d is even.\n", seq);
+        TRACEVAR(seq);
     } else {
         printf("%d is odd.\n", seq);
+        TRACEVAR(seq);
     }
 
 
