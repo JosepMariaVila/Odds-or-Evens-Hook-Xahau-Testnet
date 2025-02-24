@@ -71,7 +71,13 @@ int64_t hook(uint32_t reserved ) {
 
     //Get ledger sequence
     int64_t seq = ledger_seq();
-    uint8_t last_digit = seq % 10;
+    //uint8_t last_digit = seq % 10;
+
+     if (seq % 2 == 0) {
+        printf("%d is even.\n", seq);
+    } else {
+        printf("%d is odd.\n", seq);
+    }
 
 
     // Get first player last digit if exists
