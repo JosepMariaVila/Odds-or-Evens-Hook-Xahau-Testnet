@@ -45,7 +45,7 @@ Once the hook is installed, the following triggers are expected for the hook.
 - An Invoke transaction from the hook account with the hook parameter “FUND” and the desired address as value in HEX format. This will store in the namespace the information with the key “FUND” and with value the address in HEX.
 
 
-## How to install the Highest Number Hook on Testnet?
+## How to install the Odds or Evens Hook on Testnet?
 
 HookHash: 89E9C5B8F04BD9C23AA0299573B0EBC43091AEBB5AFC90D4A353020A00CEFDE7
 
