@@ -9,7 +9,7 @@ Odds or Evens is a hook programmed in C for the Xahau blockchain. A hook is a se
 
 Odds or Evens is a Hook that converts a Xahau account in an engine for a simple game. One player will hava an Odd or and Even number based on the sequence ledger of the payment payload he sent. Next player will have an Odd or an Even number based on the sequence ledger of the payment payload he sent. 
 
-This hook is based in the Highest Number Hook by @ekiserrepe. That hook had an undesirable thing, the range between numbers where in some cases predictable, for example, if first player had a 0 or 1, then there were high chances the second player was able to win because, 2, 3, 4, 5, 6, 7, 8 and 9 would win him. So I thought this should be reduced to a range of 2 options, this way the result would be less predictable. A way to do so is reduce de ledger sequence number to an odd or even number or to its corresponding remainders when they are dividid by 2. The result of dividing the ledger sequence by 2 is 0 for even numbers, on 1 for odd numbers.
+This hook is based in the Highest Number Hook by @ekiserrepe. That hook had an undesirable thing, the range between numbers where in some cases predictable, for example, if first player had a 0 or 1, then there were high chances the second player was able to win because, 2, 3, 4, 5, 6, 7, 8 and 9 would win him. So I thought this should be reduced to a range of 2 options, this way the result would be less predictable. A way to do so is reduce the ledger sequence number to an odd or even number or to its corresponding remainders when they are divided by 2. The result of dividing the ledger sequence by 2 is 0 for even numbers, or 1 for odd numbers.
 
 But who wins?
 
