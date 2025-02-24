@@ -72,15 +72,16 @@ int64_t hook(uint32_t reserved ) {
     //Get ledger sequence
     int64_t seq = ledger_seq();
     //uint8_t last_digit = seq % 10;
+    uint8_t oddoreven2 = seq % 2;
 
      if (seq % 2 == 0) {
+        uint8_t oddoreven2 = 0;
         printf("%d is even.\n", seq);
-        TRACEVAR(seq);
+        TRACEVAR(oddoreven2);
     } else {
-        printf("%d is odd.\n", seq);
-        TRACEVAR(seq);
+        uint8_t oddoreven2 = 1;
+        TRACEVAR(oddoreven2);
     }
-
 
     // Get first player last digit if exists
     uint64_t p1_digit;
@@ -89,17 +90,17 @@ int64_t hook(uint32_t reserved ) {
     //If i want to add the funding account
     if (!equal && otxn_param(fundaddress_hp, 20, SBUF(fund_param))==20 && tt==99) {
         state_set(SBUF(fundaddress_hp), fund_param, 4);
-        accept(SBUF("Highest: Adding fund account."), 1);
+        accept(SBUF("Odd or Even: Adding fund account."), 1);
 
     }
 
     //I want to allow the fund account send payments and receiving from hook account
     if (tt==00 && ( sender_equal || destination_equal)) {
-        accept(SBUF("Highest: Funding account payment."), 2);
+        accept(SBUF("Odd or Even: Funding account payment."), 2);
     }
     // If It's not XAH (other tokens). or a transaction without amount
     if (amount_len != 8){
-        rollback(SBUF("Highest: Not accepting IOUs or transaction type."), 3);
+        rollback(SBUF("Odd or Even: Not accepting IOUs or transaction type."), 3);
         }
     else // If it's XAH
     {
@@ -111,7 +112,7 @@ int64_t hook(uint32_t reserved ) {
 
     //If first player payment goes right, to check that, you need an incoming payment from another account (equal=1), it has to be a payment (tt==00), the amount has to be 1 XAH (drops_sent==1000000) and be the first player to enter to the game, no previous records of player in the namespace (state(SVAR(p1address_ns), p1address_param, 4) != 20)
     if (equal && state(SVAR(p1address_ns), p1address_param, 4) != 20 && tt==00 && drops_sent==1000000) {
-        state_set(SVAR(last_digit), p1ledger_param, 4);
+        state_set(SVAR(oddoreven2), p1ledger_param, 4);
         state_set(SBUF(acc_id), p1address_param, 4);
         accept(SBUF("Highest: Saving first player."), 4);
     }
@@ -120,19 +121,19 @@ int64_t hook(uint32_t reserved ) {
         unsigned char tx01[PREPARE_PAYMENT_SIMPLE_SIZE];
 
         //If P2 Wins, we send 2 XAH to P2
-        if(last_digit>p1_digit){
+        if(oddoreven2 != p1_digit){
             PREPARE_PAYMENT_SIMPLE(tx01, drops_sent*2, acc_id, 0, 0);
             uint8_t emithash01[32];
             int64_t emit_result01 = emit(SBUF(emithash01), SBUF(tx01));
         }
         //If P1 Wins we send 2 XAH to P1
-        if(last_digit<p1_digit){
+        if(oddoreven2 == p1_digit){
             PREPARE_PAYMENT_SIMPLE(tx01, drops_sent*2, p1address_ns, 0, 0);
             uint8_t emithash01[32];
             int64_t emit_result01 = emit(SBUF(emithash01), SBUF(tx01));
         }
         //If there is a draw, we send 1 XAH to each player
-        if(last_digit==p1_digit){
+       /* if(last_digit==p1_digit){
             unsigned char tx02[PREPARE_PAYMENT_SIMPLE_SIZE];
             PREPARE_PAYMENT_SIMPLE(tx01, drops_sent, p1address_ns, 0, 0);
             uint8_t emithash01[32];
@@ -140,14 +141,14 @@ int64_t hook(uint32_t reserved ) {
             PREPARE_PAYMENT_SIMPLE(tx02, drops_sent, acc_id, 0, 0);
             uint8_t emithash02[32];
             int64_t emit_result02 = emit(SBUF(emithash02), SBUF(tx02));
-        }
+        }*/
         //Deleting P1 values from namespace
         state_set(0,0, p1ledger_param, 4);
         state_set(0,0, p1address_param, 4);
         accept(SBUF("Highest: End of the game."), 3);
     }
 
-    rollback(SBUF("Highest: Not accepting this transaction."), 5);
+    rollback(SBUF("Odd or Even: Not accepting this transaction."), 5);
     _g(1,1);   // every hook needs to import guard function and use it at least once
     // unreachable
     return 0;
