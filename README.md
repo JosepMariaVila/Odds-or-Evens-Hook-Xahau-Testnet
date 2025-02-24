@@ -24,6 +24,7 @@ If the first player has a remainder of 1 and the second player a remainder of 0,
 These rules can be sumarized like this:
 Compare the remainders of both players regarding being odd or even, if they are equal, first player wins, if they are different, second player wins.
 
+
 ## Explanation
 
 **Attention:** Only use if you are sure of what you are doing on Testnet/Mainnet. You could put your funds at risk. It is recommended to install on new accounts.
@@ -31,6 +32,7 @@ Compare the remainders of both players regarding being odd or even, if they are 
 The hook when installed allows you to play the game of the odds or evens numbers. The hook will accept two players sending 1 XAH. With each payment the hook will check the sequence of the current ledger. The hook will check if it's an odd or even number and store the remainder of the division in the namespace next to the address of the first player referring to the first payment he receives. When a second player sends a payment of 1 XAH to the hook address, the hook will check the sequence and compare the remainder with that of the first player. This can lead to 2 possible outcomes. Both have the same remainder or a different one. If both have the same remainder, Player 1 wins and receives 2 XAH. If both players have a different remainder, Player 2 wins and receives 2 XAH. 
 
 The hook blocks any payment other than 1 XAH. So a third case could occur, that the hook account runs out of funds and the game cannot be managed. If there are insufficient funds it might not be possible to send the “prize” to the winners. Therefore, it has been enabled to manage an account known as funding “FUND” that the hook allows to operate payments in both directions to be able to take out or put in XAH and avoid the mentioned problem. To assign a “FUND” account it is necessary to create an Invoke transaction from the Hook account with the parameter “FUND” and the account that we want to assign as a “FUND” account in the parameter value. The process is explained below.
+
 
 ## Installation & Usage
 
@@ -49,35 +51,6 @@ HookHash: 89E9C5B8F04BD9C23AA0299573B0EBC43091AEBB5AFC90D4A353020A00CEFDE7
 
 1. You can do it by [XRPLWin Hook Install Tool](https://xahau-testnet.xrplwin.com/tools/hook/from-hash)
    
-
-
-## Transaction Examples for Hook Parameters
-
-## Adding the FUND account
-
-We create a Invoke transaction with our Hook Account as "Account" and NO Destination Account. 
-
-Hook Parameters and values will be:
-- FUND
-- funding_address
-
-In this example we are using 1E2D42546C8A5270D4E182FAE3D12186F2A32A7E that is the translated version of the address rskZVQvBEXAwsBTFsgEZMBfwnhC7oydSnp. You can visit https://transia-rnd.github.io/xrpl-hex-visualizer/ , Insert the account and click on From Hex, you will see the xrpAddress will be the same as we added. FUND string is HEX translated: 46554E44. (For https://builder.xahau.network/ IDE you don't need to translate Parameter Name)
-
-    const prepared = {
-      TransactionType: "Invoke",
-      Account: your_account_address,
-      Flags: 0,
-      HookParameters: [
-        {
-          HookParameter: {
-            HookParameterName: "46554E44",
-            HookParameterValue: "1E2D42546C8A5270D4E182FAE3D12186F2A32A7E",
-          },
-        },
-        ],
-      ...networkInfo.txValues,
-    };
-
 
 ## I want to try them without installing anything
 
