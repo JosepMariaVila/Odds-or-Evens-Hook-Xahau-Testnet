@@ -74,7 +74,7 @@ int64_t hook(uint32_t reserved ) {
     TRACESTR("Remainder: ");
     TRACEVAR(remainder);
 
-    // Get first player number if exists
+    // Get first player remainder (?) if exists
     uint64_t p1_digit;
     state(SVAR(p1_digit), p1ledger_param, 4);
 
