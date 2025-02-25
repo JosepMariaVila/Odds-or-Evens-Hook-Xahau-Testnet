@@ -1,6 +1,3 @@
-/**
- * Odds or Evens Game - Readme available: https://github.com/JosepMariaVila/odds-or-evens-hook/blob/main/README.md
- */
 #include "hookapi.h"
 
 int64_t hook(uint32_t reserved ) {
