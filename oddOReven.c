@@ -65,11 +65,12 @@ int64_t hook(uint32_t reserved ) {
 
     //Get ledger sequence
     int64_t seq = ledger_seq();
-    TRACEVAR("Ledger Index Sequence: ");
+    TRACESTR("Ledger Index Sequence: ");
     TRACEVAR(seq);
     //uint8_t last_digit = seq % 10;
     uint8_t remainder = seq % 2;
-    TRACEVAR("Remainder: ", remainder);
+    TRACESTR("Remainder: ");
+    TRACEVAR(remainder);
 
     // Get first player number if exists
     uint64_t p1_digit;
