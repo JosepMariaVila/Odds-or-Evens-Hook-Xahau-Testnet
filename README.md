@@ -57,6 +57,8 @@ HookHash: 89E9C5B8F04BD9C23AA0299573B0EBC43091AEBB5AFC90D4A353020A00CEFDE7
 You can try this hook just sending 1 XAH to the following account on TESTNET and wait until somebody else sends 1 XAH to it and see who wins (or you can just create a second account on testnet and send yourself 1 XAH from this different account and see who wins):
 
 - Testnet hook account:   r9uM7PHEYvMqBQsuFzAany9xucXfrQsLDr
+  
+- The hook on the testnet explorer: https://xahau-testnet.xrplwin.com/account/r9uM7PHEYvMqBQsuFzAany9xucXfrQsLDr
 
 
 ## Credits
